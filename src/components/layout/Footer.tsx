@@ -143,7 +143,7 @@ const Footer = ({
       </div>
 
       {/* //borrows summary */}
-      <div className="container">hello</div>
+      <div className="container">{}</div>
     </Container>
   );
 };
