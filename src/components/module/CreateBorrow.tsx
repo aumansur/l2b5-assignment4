@@ -30,7 +30,7 @@ const CreateBorrow: React.FC<CreateBorrowProps> = ({
   const navigate = useNavigate();
   const [borrowBook] = useCreateBorrowMutation();
 
-  const form = useForm();
+  const form = useForm<IBorrow>();
   const [open, setOpen] = useState(false);
   const onSubmit = async (data: IBorrow) => {
     console.log(data);
@@ -53,6 +53,7 @@ const CreateBorrow: React.FC<CreateBorrowProps> = ({
 
       navigate("/books");
       setOpen(false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       toast.error(err?.data?.message || "Borrow failed");
     }

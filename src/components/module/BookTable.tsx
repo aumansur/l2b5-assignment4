@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Trash2 } from "lucide-react";
+import { Trash2, View } from "lucide-react";
 
 import type { IBook } from "@/types/book";
 import Container from "@/utils/Container";
@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import UpdateBookModal from "./UpdateBookModal";
 
 import CreateBorrow from "./CreateBorrow";
+import { Link } from "react-router-dom";
 
 const BookTable: React.FC<{ book: IBook }> = ({ book }) => {
   const [deleteBook] = useDeleteBookMutation();
@@ -90,6 +91,14 @@ const BookTable: React.FC<{ book: IBook }> = ({ book }) => {
                           availableCopies={book.copies}
                         />
                       </Button>
+                      <Link to={`/books/${book._id}`}>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          aria-label="Edit Book">
+                          <View className="text-center" />
+                        </Button>
+                      </Link>
                     </td>
                   </tr>
                 </tbody>
@@ -144,6 +153,11 @@ const BookTable: React.FC<{ book: IBook }> = ({ book }) => {
                     availableCopies={book.copies}
                   />
                 </Button>
+                <Link to={`/books/${book._id}`}>
+                  <Button variant="outline" size="icon" aria-label="Edit Book">
+                    <View className="text-center" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
